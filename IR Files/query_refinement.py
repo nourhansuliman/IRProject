@@ -100,11 +100,11 @@ def refine_query():
         "logs_suggestions": []
     }
 
-    # تنفيذ Autocomplete
+
     if prefix:
         response["autocomplete"] = suggest_autocomplete(prefix, dataset_name)
 
-    # تنفيذ Query Expansion
+
     if query:
         model = fasttext_model[dataset_name]
 

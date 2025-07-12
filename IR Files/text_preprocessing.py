@@ -5,43 +5,42 @@ from nltk.tokenize import word_tokenize
 
 app = Flask(__name__)
 
-# تحميل نموذج spaCy
+
 nlp = spacy.load('en_core_web_sm')
 
 
 
-# إزالة الروابط
+
 def remove_links(text):
     return re.sub(r'https?://\S+|www\.\S+', ' ', text)
 
-# إزالة الأحرف غير الإنجليزية
+
 def remove_non_english_chars(text):
     return re.sub(r'[^a-zA-Z\s]', ' ', text)
 
-# إزالة الكلمات المكررة ذات الحرف الواحد (مثل: aa, bb)
+
 def remove_single_char_words(text):
     return re.sub(r'\b(\w)\1+\b', ' ', text)
 
-# الإبقاء فقط على الكلمات بطول من 3 إلى 15 حرف
+
 def remove_words_outside_range(text):
     words = word_tokenize(text)
     return ' '.join([word for word in words if 3 <= len(word) <= 15])
 
-# إزالة كلمات الوقف
+
 def remove_stopwords(text):
     tokens = word_tokenize(text)
     return ' '.join([word for word in tokens if word not in custom_stopwords])
 
-# Lemmatization باستخدام spaCy
+
 def lemma_words(text):
     doc = nlp(text)
     return ' '.join([token.lemma_ for token in doc])
 
-# تنظيف الفراغات
+
 def remove_whitespace(text):
     return ' '.join(word_tokenize(text))
 
-# ✅ الدالة النهائية
 def preprocess(text):
     text = text.lower()
     text = remove_links(text)

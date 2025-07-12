@@ -219,12 +219,12 @@ def insert_faiss_index(dataset_name, index):
     conn = get_connection()
     cursor = conn.cursor()
 
-    # كتابة الـ FAISS index في buffer
+
     buffer = io.BytesIO()
     faiss.write_index(index, faiss.PyCallbackIOWriter(buffer.write))
     index_blob = buffer.getvalue()
 
-    # ✅ ضغط البيانات
+
     compressed_blob = zlib.compress(index_blob)
 
     cursor.execute(
@@ -328,7 +328,7 @@ def fetch_faiss_index(dataset_name):
     if not result:
         raise ValueError(f"No FAISS index found for dataset {dataset_name}")
 
-    # ✅ فك الضغط
+
     compressed_blob = result[0]
     index_blob = zlib.decompress(compressed_blob)
     print(f"🔍 Compressed FAISS index size: {len(compressed_blob) / 1024 / 1024:.2f} MB")

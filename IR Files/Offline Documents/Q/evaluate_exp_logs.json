@@ -1,0 +1,23 @@
+[
+  "Query Refinement Evaluation Results on Dataset: Q, Model: tfidf, min_rel_val >= 1",
+  "-----------------------------------------------------",
+  "Total Queries Evaluated: 10000",
+  "Mean Average Precision (MAP):     0.6235",
+  "Precision@10:                     0.1064",
+  "Recall:                           0.7974",
+  "Mean Reciprocal Rank (MRR):       0.6604",
+  "Query Refinement Evaluation Results on Dataset: Q, Model: we, min_rel_val >= 1",
+  "-----------------------------------------------------",
+  "Total Queries Evaluated: 10000",
+  "Mean Average Precision (MAP):     0.5912",
+  "Precision@10:                     0.1006",
+  "Recall:                           0.7554",
+  "Mean Reciprocal Rank (MRR):       0.6297",
+  "Query Refinement Evaluation Results on Dataset: Q, Model: hybrid, min_rel_val >= 1",
+  "-----------------------------------------------------",
+  "Total Queries Evaluated: 10000",
+  "Mean Average Precision (MAP):     0.6381",
+  "Precision@10:                     0.1071",
+  "Recall:                           0.8017",
+  "Mean Reciprocal Rank (MRR):       0.6766"
+]
